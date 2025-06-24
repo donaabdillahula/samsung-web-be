@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Service
+  db:
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: samsung_web_db
+    ports:
+      - "5432:5432"
+    healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U postgres"]
+        interval: 10s
+        timeout: 20s
+        retries: 10
+    networks:
+      - samsung_web_be_networks
+
+  # Spring Boot API Service
+  api:
+    build:
+      context: ./
+      dockerfile: dev.dockerfile
+    env_file:
+        - .env
+    ports:
+      - "8080:8080"
+    depends_on:
+        db:
+          condition: service_healthy
+    volumes:
+      - ./:/app
+      - ./temp:/app/temp
+    networks:
+      - samsung_web_be_networks
+
+networks:
+  samsung_web_be_networks:
+    driver: bridge
