@@ -13,7 +13,7 @@ This is a Spring Boot backend project for Samsung Web.
 
 ## Requirements
 
--   Java 21+ (recommended)
+-   Java 24 (recommended)
 -   Maven 3.9+
 -   PostgreSQL database
 -   Docker (for containerization)
@@ -77,17 +77,14 @@ docker run --env-file .env -p 8080:8080 yourusername/samsung-web-be:latest
 The application uses environment variables for configuration. Example:
 
 ```
-SPRING_DATASOURCE_URL=jdbc:postgresql://<host>:<port>/<db>
-SPRING_DATASOURCE_USERNAME=your_db_user
-SPRING_DATASOURCE_PASSWORD=your_db_password
-SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver
-SPRING_JPA_HIBERNATE_DDL_AUTO=update
-SPRING_JPA_SHOW_SQL=true
-SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL=true
-IMAGEKIT_BOOK_FOLDER=samsung-web
-IMAGEKIT_URL_ENDPOINT=https://ik.imagekit.io/your_endpoint
-IMAGEKIT_PRIVATE_KEY=your_private_key
-IMAGEKIT_PUBLIC_KEY=your_public_key
+SPRING_DATASOURCE_URL=
+SPRING_DATASOURCE_USERNAME=
+SPRING_DATASOURCE_PASSWORD=
+SPRING_DATASOURCE_DRIVER-CLASS-NAME=
+SPRING_JPA_HIBERNATE_DDL-AUTO=
+SPRING_JPA_SHOW-SQL=
+SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL=
+SPRING_APPLICATION_NAME=
 ```
 
 ## Deployment
