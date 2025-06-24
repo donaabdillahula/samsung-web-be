@@ -32,7 +32,7 @@ public class BookService {
     public BookService(BookRepository bookRepository,
             AuthorRepository authorRepository,
             ImageKitStorageService imageKitStorageService,
-            @Value("${IMAGEKIT_BOOK_FOLDER}") String imageKitFolder) {
+            @Value("samsung-web") String imageKitFolder) {
         this.bookRepository = bookRepository;
         this.authorRepository = authorRepository;
         this.imageKitStorageService = imageKitStorageService;
